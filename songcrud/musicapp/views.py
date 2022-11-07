@@ -16,5 +16,12 @@ def artist_detail_pages(request, primary_key):
     artists = Artiste.objects.get(primary_key = primary_key)
     context = {"artists": artists}
     return render(request, 'musicapp/artist_detail.html', context)
+
 def index2(request):
     return HttpResponse("Welcome to my music app")
+
+def songs_list(request):
+    songs = Song.objects.all()
+    context = {}
+    context = {"songs": songs}
+    return render(request, 'musicapp/list_songs.html', context)
