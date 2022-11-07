@@ -1,0 +1,13 @@
+{% extends './base.html' %} 
+{% block content %}
+<div class="row">
+    <h1>This is a list of all the songs</h1>
+</div>
+<div class=" artist">
+    {% for song in songs%}
+        <div>
+            <a>{{song.title}}</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock%}
