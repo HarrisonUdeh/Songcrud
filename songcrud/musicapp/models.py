@@ -5,6 +5,8 @@ from datetime import datetime
 
 
 class Artiste(models.Model):
+    artist_name = models.CharField(
+        max_length=50, help_text='Enter your first name', default="name")
     first_name = models.CharField(
         max_length=50, help_text='Enter your first name', default="name")
     last_name = models.CharField(
@@ -15,7 +17,7 @@ class Artiste(models.Model):
     #primary_key = models.BigAutoField(primary_key= True)
 
     def __str__(self):
-        return self.first_name + " " + self.last_name
+        return self.artist_name
 
 
 class Song(models.Model):
@@ -34,3 +36,6 @@ class Lyric(models.Model):
     content = models.TextField(max_length=1000000, default="lyrics")
     #song_id = models.ForeignKey(Song.artiste_id, on_delete=models.CASCADE)
     song_id = models.ForeignKey(Song, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.song_id)
