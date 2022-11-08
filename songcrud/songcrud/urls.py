@@ -20,6 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('musicapp/', include('musicapp.urls'), name="musicapp"),
     path('', index, name="homepage"),
+    path('api/', include('api.urls')),
     path('<int:primary_key>/', artist_detail_pages,  name = "detail" ),
-    path('songs/', songs_list, name="list")
+    path('songs/', songs_list, name="list"),
+    path('api-auth/', include('rest_framework.urls'))
 ]
